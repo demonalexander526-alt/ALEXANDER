@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Expertise - ALEXANDER</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .language-detail {
+            background: var(--text-light);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--secondary-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .language-detail h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .language-detail .use-cases {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .use-case {
+            background: var(--bg-light);
+            padding: 1rem;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .use-case i {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .programming-hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            color: var(--text-light);
+            padding: 80px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">ALEXANDER</div>
+            <ul class="nav-menu">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="programming.html">Programming</a></li>
+                <li><a href="hacking.html">Hacking</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" title="Toggle Dark Mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="programming-hero">
+        <div class="container">
+            <a href="index.html" class="back-link">← Back to Home</a>
+            <h1>Programming Language Expertise</h1>
+            <p class="subtitle">Master of 15+ Programming Languages</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section style="padding: 80px 20px;">
+        <div class="container">
+            <h2 style="margin-bottom: 3rem; text-align: center; color: var(--primary-color);">
+                Language Breakdown & Applications
+                <div style="width: 60px; height: 4px; background-color: var(--secondary-color); border-radius: 2px; margin: 1rem auto 0;"></div>
+            </h2>
+
+            <!-- Python -->
+            <div class="language-detail">
+                <h3><i class="fab fa-python" style="color: #3776ab; margin-right: 0.5rem;"></i>Python</h3>
+                <p>Python is my primary language for backend development, automation, and data processing. Known for its versatility and readable syntax.</p>
+                <div class="use-cases">
+                    <div class="use-case">
+                        <i class="fas fa-robot"></i>
+                        <strong>Automation</strong>
+                    </div>
+                    <div class="use-case">
+                        <i class="fas fa-database"></i>
+                        <strong>Data Processing</strong>
+                    </div>
+                    <div class="use-case">
+                        <i class="fas fa-flask"></i>
+                        <strong>Web Frameworks</strong>
+                    </div>
+                    <div class="use-case">
+                        <i class="fas fa-microscope"></i>
+                        <strong>Machine Learning</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JavaScript -->
+            <div class="language-detail">
+                <h3><i class="fab fa-js" style="color: #f7df1e; margin-right: 0.5rem;"></i>JavaScript</h3>
+                <p>JavaScript powers interactive web applications and frontend development. Essential for modern web development.</p>
+                <div class="use-cases">
+                    <div class="use-case">
+                        <i class="fas fa-desktop"></i>
+                        <strong>Frontend Dev</strong>
+                    </div>
+                    <div class="use-case">
+                        <i class="fas fa-server"></i>
+                        <strong>Node.js Backend</strong>
+                    </div>
+                    <div class="use-case">
+                        <i class="fas fa-cube"></i>
+                        <strong>DOM Manipulation</strong>
+                    </div>
+                    <div class="use-case">
+                        <i class="fas fa-sync"></i>
+                        <strong>Async Programming</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Java -->
+            <div class="language-detail">
+                <h3><i class="fab fa-java" style="color: #007396; margin-right: 0.5rem;"></i>Java</h3>
+                <p>Java is crucial for enterprise-level applications, offering robust OOP principles and cross-platform compatibility.</p>
+                <div class="use-cases">
+                    <div class="use-case">
+                        <i class="fas fa-building"></i>
+                        <strong>Enterprise Apps</strong>
+                    </div>
+                    <div class="use-case">
+                        <i class="fas fa-mobile-alt"></i>
+                        <strong>Android Dev</strong>
+                    </div>
+                    <div class="use-case">
+                        <i class="fas fa-cogs"></i>
+                        <strong>Multithreading</strong>
+                    </div>
+                    <div class="use-case">
+                        <i class="fas fa-network-wired"></i>
+                        <strong>Networking</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- C++ -->
+            <div class="language-detail">
+                <h3><i class="fas fa-code" style="color: #00599c; margin-right: 0.5rem;"></i>C++</h3>
+                <p>C++ powers high-performance systems programming with direct hardware access and memory management.</p>
+                <div class="use-cases">
+                    <div class="use-case">
+                        <i class="fas fa-bolt"></i>
+                        <strong>High Performance</strong>
+                    </div>
+                    <div class="use-case">
+                        <i class="fas fa-gamepad"></i>
+                        <strong>Game Development</strong>
+                    </div>
+                    <div class="use-case">
+                        <i class="fas fa-memory"></i>
+                        <strong>Systems Programming</strong>
+                    </div>
+                    <div class="use-case">
+                        <i class="fas fa-cogs"></i>
+                        <strong>Embedded Systems</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- C# -->
+            <div class="language-detail">
+                <h3><i class="fas fa-square" style="color: #239120; margin-right: 0.5rem;"></i>C#</h3>
+                <p>C# is my language of choice for Windows applications, game development with Unity, and enterprise solutions.</p>
+                <div class="use-cases">
+                    <div class="use-case">
+                        <i class="fab fa-windows"></i>
+                        <strong>Windows Apps</strong>
+                    </div>
+                    <div class="use-case">
+                        <i class="fas fa-gamepad"></i>
+                        <strong>Unity Games</strong>
+                    </div>
+                    <div class="use-case">
+                        <i class="fas fa-cube"></i>
+                        <strong>.NET Framework</strong>
+                    </div>
+                    <div class="use-case">
+                        <i class="fas fa-network-wired"></i>
+                        <strong>Web API</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rust -->
+            <div class="language-detail">
+                <h3><i class="fab fa-rust" style="color: #ce422b; margin-right: 0.5rem;"></i>Rust</h3>
+                <p>Rust combines performance with memory safety, making it ideal for systems programming and concurrent applications.</p>
+                <div class="use-cases">
+                    <div class="use-case">
+                        <i class="fas fa-shield-alt"></i>
+                        <strong>Memory Safety</strong>
+                    </div>
+                    <div class="use-case">
+                        <i class="fas fa-sync"></i>
+                        <strong>Concurrency</strong>
+                    </div>
+                    <div class="use-case">
+                        <i class="fas fa-server"></i>
+                        <strong>Systems Dev</strong>
+                    </div>
+                    <div class="use-case">
+                        <i class="fas fa-web"></i>
+                        <strong>WebAssembly</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Go (Golang) -->
+            <div class="language-detail">
+                <h3><i class="fas fa-code" style="color: #00add8; margin-right: 0.5rem;"></i>Golang</h3>
+                <p>Go is designed for simplicity and scalability, perfect for building efficient backend services and microservices.</p>
+                <div class="use-cases">
+                    <div class="use-case">
+                        <i class="fas fa-server"></i>
+                        <strong>Microservices</strong>
+                    </div>
+                    <div class="use-case">
+                        <i class="fas fa-network-wired"></i>
+                        <strong>Networking</strong>
+                    </div>
+                    <div class="use-case">
+                        <i class="fas fa-cloud"></i>
+                        <strong>Cloud Native</strong>
+                    </div>
+                    <div class="use-case">
+                        <i class="fas fa-code"></i>
+                        <strong>CLI Tools</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HTML & CSS -->
+            <div class="language-detail">
+                <h3><i class="fab fa-html5" style="color: #e34c26; margin-right: 0.5rem;"></i>HTML & CSS</h3>
+                <p>HTML and CSS are the foundation of web development, essential for creating responsive and beautiful user interfaces.</p>
+                <div class="use-cases">
+                    <div class="use-case">
+                        <i class="fas fa-paint-brush"></i>
+                        <strong>UI Design</strong>
+                    </div>
+                    <div class="use-case">
+                        <i class="fas fa-mobile-alt"></i>
+                        <strong>Responsive</strong>
+                    </div>
+                    <div class="use-case">
+                        <i class="fas fa-accessibility"></i>
+                        <strong>Accessibility</strong>
+                    </div>
+                    <div class="use-case">
+                        <i class="fas fa-cube"></i>
+                        <strong>Layouts</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shell Scripting -->
+            <div class="language-detail">
+                <h3><i class="fas fa-terminal" style="color: #333; margin-right: 0.5rem;"></i>Shell Scripting (Bash)</h3>
+                <p>Shell scripting is crucial for Linux automation, system administration, and DevOps operations.</p>
+                <div class="use-cases">
+                    <div class="use-case">
+                        <i class="fas fa-robot"></i>
+                        <strong>Automation</strong>
+                    </div>
+                    <div class="use-case">
+                        <i class="fas fa-gears"></i>
+                        <strong>System Admin</strong>
+                    </div>
+                    <div class="use-case">
+                        <i class="fas fa-code"></i>
+                        <strong>DevOps</strong>
+                    </div>
+                    <div class="use-case">
+                        <i class="fas fa-tools"></i>
+                        <strong>Utilities</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flutter & Dart -->
+            <div class="language-detail">
+                <h3><i class="fab fa-flutter" style="color: #02569b; margin-right: 0.5rem;"></i>Flutter & Dart</h3>
+                <p>Flutter and Dart enable rapid development of beautiful, natively compiled mobile applications across iOS and Android.</p>
+                <div class="use-cases">
+                    <div class="use-case">
+                        <i class="fas fa-mobile-alt"></i>
+                        <strong>Cross-Platform</strong>
+                    </div>
+                    <div class="use-case">
+                        <i class="fas fa-paint-brush"></i>
+                        <strong>Beautiful UI</strong>
+                    </div>
+                    <div class="use-case">
+                        <i class="fas fa-bolt"></i>
+                        <strong>Performance</strong>
+                    </div>
+                    <div class="use-case">
+                        <i class="fas fa-code"></i>
+                        <strong>Hot Reload</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VBS -->
+            <div class="language-detail">
+                <h3><i class="fab fa-windows" style="color: #0078d4; margin-right: 0.5rem;"></i>VBS (VBScript)</h3>
+                <p>VBS is used for Windows scripting, system administration, and legacy application support.</p>
+                <div class="use-cases">
+                    <div class="use-case">
+                        <i class="fas fa-windows"></i>
+                        <strong>Windows Scripts</strong>
+                    </div>
+                    <div class="use-case">
+                        <i class="fas fa-gears"></i>
+                        <strong>Admin Tasks</strong>
+                    </div>
+                    <div class="use-case">
+                        <i class="fas fa-code"></i>
+                        <strong>Automation</strong>
+                    </div>
+                    <div class="use-case">
+                        <i class="fas fa-legacy"></i>
+                        <strong>Legacy Support</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summary -->
+            <div style="background: linear-gradient(135deg, var(--bg-light) 0%, #f0f0f0 100%); padding: 3rem; border-radius: var(--border-radius); margin-top: 3rem; text-align: center;">
+                <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Polyglot Developer</h3>
+                <p style="font-size: 1.1rem; color: #666;">
+                    With expertise across 15+ programming languages, I can tackle any development challenge. My diverse skill set allows me to choose 
+                    the best tool for each project, ensuring optimal performance, maintainability, and scalability.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 ALEXANDER. All rights reserved. | Expert Programmer & Security Specialist</p>
+            <div class="social-links">
+                <a href="https://github.com/demonalexander526-alt" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

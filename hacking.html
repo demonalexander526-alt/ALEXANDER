@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity & Hacking - ALEXANDER</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hacking-hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            color: var(--text-light);
+            padding: 80px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .security-category {
+            background: var(--text-light);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--secondary-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .security-category:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .security-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        .security-category i {
+            font-size: 1.8rem;
+        }
+
+        .security-techniques {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .technique-item {
+            background: var(--bg-light);
+            padding: 1rem;
+            border-radius: 6px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: var(--transition);
+        }
+
+        .technique-item:hover {
+            border-color: var(--secondary-color);
+            background: rgba(233, 69, 96, 0.05);
+        }
+
+        .technique-item i {
+            color: var(--secondary-color);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .technique-item strong {
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .technique-item p {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .tools-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 3rem 2rem;
+            border-radius: var(--border-radius);
+            margin: 3rem 0;
+        }
+
+        .tools-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tool-card {
+            background: var(--text-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            border-top: 3px solid var(--secondary-color);
+            border: 2px solid var(--secondary-color);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .tool-card a {
+            color: inherit;
+            text-decoration: none;
+        }
+        .tool-card a:hover {
+            text-decoration: underline;
+        }
+
+        .tool-card h4 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .tool-card p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .install-box {
+            background: rgba(10, 14, 39, 0.95);
+            color: #f5f5ff;
+            border: 1px solid rgba(139, 0, 255, 0.5);
+            border-radius: var(--border-radius);
+            padding: 1.8rem;
+            margin-top: 2rem;
+            box-shadow: 0 0 20px rgba(139, 0, 255, 0.18);
+        }
+
+        .install-box h4 {
+            margin-bottom: 0.8rem;
+            color: var(--neon-cyan);
+            text-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        .install-box p {
+            margin-bottom: 1rem;
+            color: #e0e0e0;
+            line-height: 1.7;
+        }
+
+        .tool-image {
+            display: block;
+            width: 100%;
+            max-width: 520px;
+            height: auto;
+            margin: 0 auto 1.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 0 25px rgba(139, 0, 255, 0.2);
+        }
+
+        .install-box code {
+            display: block;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 0.85rem 1rem;
+            border-radius: 12px;
+            color: #ffffff;
+            margin-bottom: 0.7rem;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: auto;
+        }
+
+        .methodology-box {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #ff6b9d 100%);
+            color: var(--text-light);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .methodology-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .methodology-box p {
+            line-height: 1.7;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .certifications {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .certification-item {
+            background: var(--text-light);
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: var(--border-radius);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .certification-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .certification-item i {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .certification-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .disclaimer {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin: 2rem 0;
+            color: #856404;
+        }
+
+        .disclaimer strong {
+            color: #333;
+        }
+
+        /* Dark Mode Overrides for Hacking Page */
+        :root[data-theme="dark"] .security-category {
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1a3e 100%);
+            border-left-color: var(--neon-purple);
+        }
+
+        :root[data-theme="dark"] .security-category h3 {
+            color: var(--text-light);
+        }
+
+        :root[data-theme="dark"] .technique-item {
+            background: var(--bg-light);
+            border-color: var(--neon-purple);
+        }
+
+        :root[data-theme="dark"] .technique-item strong {
+            color: var(--text-light);
+        }
+
+        :root[data-theme="dark"] .technique-item p {
+            color: var(--text-dark);
+        }
+
+        :root[data-theme="dark"] .tools-section {
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1a3e 100%);
+        }
+
+        :root[data-theme="dark"] .tools-section h3 {
+            color: var(--text-light);
+        }
+
+        :root[data-theme="dark"] .tool-card {
+            background: var(--primary-color);
+            border-top-color: var(--neon-purple);
+        }
+
+        :root[data-theme="dark"] .tool-card h4 {
+            color: var(--text-light);
+        }
+
+        :root[data-theme="dark"] .tool-card p {
+            color: var(--text-dark);
+        }
+
+        :root[data-theme="dark"] .install-box {
+            background: rgba(10, 14, 39, 0.95);
+            border-color: rgba(139, 0, 255, 0.5);
+            box-shadow: 0 0 20px rgba(139, 0, 255, 0.18);
+        }
+
+        :root[data-theme="dark"] .install-box h4 {
+            color: var(--neon-cyan);
+        }
+
+        :root[data-theme="dark"] .install-box p {
+            color: #e0e0e0;
+        }
+
+        :root[data-theme="dark"] .install-box code {
+            background: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+        }
+
+        :root[data-theme="dark"] .methodology-box {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-color) 100%);
+        }
+
+        :root[data-theme="dark"] .methodology-box h3 {
+            color: var(--text-light);
+        }
+
+        :root[data-theme="dark"] .methodology-box p {
+            color: var(--text-light);
+        }
+
+        :root[data-theme="dark"] .certifications h3 {
+            color: var(--text-light);
+        }
+
+        :root[data-theme="dark"] .certification-item {
+            background: var(--primary-color);
+        }
+
+        :root[data-theme="dark"] .certification-item h4 {
+            color: var(--text-light);
+        }
+
+        :root[data-theme="dark"] .certification-item p {
+            color: var(--text-dark);
+        }
+
+        :root[data-theme="dark"] .disclaimer {
+            background: #331100;
+            border-left-color: #ff4500;
+            color: #ffcccc;
+        }
+
+        :root[data-theme="dark"] .disclaimer strong {
+            color: #ffcccc;
+        }
+
+        :root[data-theme="dark"] .best-practices-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--bg-light) 100%);
+        }
+
+        :root[data-theme="dark"] .best-practices-section h3 {
+            color: var(--text-light);
+        }
+
+        :root[data-theme="dark"] .best-practices-section h4 {
+            color: var(--text-light);
+        }
+
+        :root[data-theme="dark"] .best-practices-section p {
+            color: var(--text-dark);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">ALEXANDER</div>
+            <ul class="nav-menu">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="programming.html">Programming</a></li>
+                <li><a href="hacking.html">Hacking</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" title="Toggle Dark Mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hacking-hero">
+        <div class="container">
+            <a href="index.html" class="back-link">← Back to Home</a>
+            <h1>Cybersecurity & Linux Hacking</h1>
+            <p class="subtitle">Grey Hat Hacker | Offensive & Defensive Security Expertise</p>
+        </div>
+    </section>
+
+    <!-- Disclaimer -->
+    <section style="padding: 20px;">
+        <div class="container">
+            <div class="disclaimer">
+                <strong><i class="fas fa-exclamation-triangle"></i> Legal Disclaimer:</strong> All hacking and penetration testing knowledge shared here is intended for 
+                <strong>educational purposes and authorized security testing only</strong>. Unauthorized access to computer systems is illegal. 
+                These techniques and tools should only be used on systems you own or have explicit written permission to test.
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section style="padding: 80px 20px;">
+        <div class="container">
+            <h2 style="margin-bottom: 3rem; text-align: center; color: var(--primary-color);">
+                Cybersecurity Expertise & Techniques
+                <div style="width: 60px; height: 4px; background-color: var(--secondary-color); border-radius: 2px; margin: 1rem auto 0;"></div>
+            </h2>
+
+            <!-- Network Security -->
+            <div class="security-category">
+                <h3><i class="fas fa-network-wired" style="color: #0f3460;"></i>Network Security Analysis</h3>
+                <p>Deep expertise in analyzing network traffic, identifying vulnerabilities, and implementing secure network architectures.</p>
+                <div class="security-techniques">
+                    <div class="technique-item">
+                        <i class="fas fa-wifi"></i>
+                        <strong>WiFi Security</strong>
+                        <p>WPA/WPA2/WPA3 analysis and testing</p>
+                    </div>
+                    <div class="technique-item">
+                        <i class="fas fa-code"></i>
+                        <strong>Packet Analysis</strong>
+                        <p>Deep packet inspection and protocol analysis</p>
+                    </div>
+                    <div class="technique-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <strong>Network Segmentation</strong>
+                        <p>VLAN security and network isolation</p>
+                    </div>
+                    <div class="technique-item">
+                        <i class="fas fa-server"></i>
+                        <strong>Firewall Rules</strong>
+                        <p>Firewall configuration and testing</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Linux Security -->
+            <div class="security-category">
+                <h3><i class="fas fa-linux" style="color: #e94560;"></i>Linux System Hardening</h3>
+                <p>Expert-level knowledge of Linux kernel security, user privilege management, file systems, and system vulnerabilities.</p>
+                <div class="security-techniques">
+                    <div class="technique-item">
+                        <i class="fas fa-lock"></i>
+                        <strong>Access Control</strong>
+                        <p>SELinux, AppArmor, ACLs configuration</p>
+                    </div>
+                    <div class="technique-item">
+                        <i class="fas fa-key"></i>
+                        <strong>Authentication</strong>
+                        <p>SSH keys, sudo privileges, auth systems</p>
+                    </div>
+                    <div class="technique-item">
+                        <i class="fas fa-gears"></i>
+                        <strong>Kernel Security</strong>
+                        <p>Exploit mitigation and kernel hardening</p>
+                    </div>
+                    <div class="technique-item">
+                        <i class="fas fa-file"></i>
+                        <strong>File System Security</strong>
+                        <p>Permissions, encryption, secure deletion</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Penetration Testing -->
+            <div class="security-category">
+                <h3><i class="fas fa-bug" style="color: #ff6b9d;"></i>Penetration Testing Methodology</h3>
+                <p>Comprehensive approach to identifying security weaknesses through authorized testing and security assessments.</p>
+                <div class="security-techniques">
+                    <div class="technique-item">
+                        <i class="fas fa-search"></i>
+                        <strong>Reconnaissance</strong>
+                        <p>Information gathering and OSINT</p>
+                    </div>
+                    <div class="technique-item">
+                        <i class="fas fa-map"></i>
+                        <strong>Scanning</strong>
+                        <p>Port scanning and vulnerability scanning</p>
+                    </div>
+                    <div class="technique-item">
+                        <i class="fas fa-door-open"></i>
+                        <strong>Exploitation</strong>
+                        <p>Authorized vulnerability testing</p>
+                    </div>
+                    <div class="technique-item">
+                        <i class="fas fa-trophy"></i>
+                        <strong>Post-Exploitation</strong>
+                        <p>Data analysis and privilege escalation testing</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vulnerability Assessment -->
+            <div class="security-category">
+                <h3><i class="fas fa-exclamation-circle" style="color: #ffc107;"></i>Vulnerability Assessment</h3>
+                <p>Identification and analysis of security flaws using systematic testing methodologies and industry-standard tools.</p>
+                <div class="security-techniques">
+                    <div class="technique-item">
+                        <i class="fas fa-code"></i>
+                        <strong>Web Application</strong>
+                        <p>OWASP Top 10 testing and API security</p>
+                    </div>
+                    <div class="technique-item">
+                        <i class="fas fa-server"></i>
+                        <strong>Infrastructure</strong>
+                        <p>Server and service vulnerability scanning</p>
+                    </div>
+                    <div class="technique-item">
+                        <i class="fas fa-mobile-alt"></i>
+                        <strong>Mobile Security</strong>
+                        <p>Mobile app vulnerability assessment</p>
+                    </div>
+                    <div class="technique-item">
+                        <i class="fas fa-database"></i>
+                        <strong>Database Security</strong>
+                        <p>SQL injection and data exposure testing</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cryptography -->
+            <div class="security-category">
+                <h3><i class="fas fa-key" style="color: #28a745;"></i>Cryptography & Encryption</h3>
+                <p>Advanced understanding of encryption algorithms, hashing, digital signatures, and secure communication protocols.</p>
+                <div class="security-techniques">
+                    <div class="technique-item">
+                        <i class="fas fa-lock"></i>
+                        <strong>Symmetric Encryption</strong>
+                        <p>AES, DES, 3DES implementation</p>
+                    </div>
+                    <div class="technique-item">
+                        <i class="fas fa-lock-open"></i>
+                        <strong>Asymmetric Encryption</strong>
+                        <p>RSA, ECC, Public key infrastructure</p>
+                    </div>
+                    <div class="technique-item">
+                        <i class="fas fa-fingerprint"></i>
+                        <strong>Hashing & Integrity</strong>
+                        <p>MD5, SHA, HMAC, Digital signatures</p>
+                    </div>
+                    <div class="technique-item">
+                        <i class="fas fa-handshake"></i>
+                        <strong>SSL/TLS</strong>
+                        <p>Secure protocol implementation</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Malware Analysis -->
+            <div class="security-category">
+                <h3><i class="fas fa-virus" style="color: #dc3545;"></i>Malware Analysis & Reverse Engineering</h3>
+                <p>Capability to analyze malicious code, understand attack vectors, and develop countermeasures.</p>
+                <div class="security-techniques">
+                    <div class="technique-item">
+                        <i class="fas fa-microscope"></i>
+                        <strong>Static Analysis</strong>
+                        <p>Binary analysis and code review</p>
+                    </div>
+                    <div class="technique-item">
+                        <i class="fas fa-play"></i>
+                        <strong>Dynamic Analysis</strong>
+                        <p>Behavior analysis in sandboxes</p>
+                    </div>
+                    <div class="technique-item">
+                        <i class="fas fa-gears"></i>
+                        <strong>Reverse Engineering</strong>
+                        <p>Disassembly and decompilation</p>
+                    </div>
+                    <div class="technique-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <strong>Threat Mitigation</strong>
+                        <p>IOCs and defensive measures</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reverse Shells -->
+            <div class="security-category">
+                <h3><i class="fas fa-terminal" style="color: #17a2b8;"></i>Reverse Shell Techniques</h3>
+                <p>Educational knowledge of reverse shell exploitation and command execution for authorized security testing and system administration.</p>
+                <div class="security-techniques">
+                    <div class="technique-item">
+                        <i class="fas fa-code"></i>
+                        <strong>Bash Reverse Shells</strong>
+                        <p>Bash TCP and UDP reverse shell techniques</p>
+                    </div>
+                    <div class="technique-item">
+                        <i class="fas fa-python"></i>
+                        <strong>Python Reverse Shells</strong>
+                        <p>Python socket-based command execution</p>
+                    </div>
+                    <div class="technique-item">
+                        <i class="fas fa-square"></i>
+                        <strong>PowerShell Reverse Shells</strong>
+                        <p>Windows PowerShell execution channels</p>
+                    </div>
+                    <div class="technique-item">
+                        <i class="fas fa-network-wired"></i>
+                        <strong>Netcat & NC Shells</strong>
+                        <p>Traditional network command channels</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payload Generation -->
+            <div class="security-category">
+                <h3><i class="fas fa-bomb" style="color: #ffc107;"></i>Payload Generation & Delivery</h3>
+                <p>Understanding and creation of security testing payloads for authorized penetration testing engagements.</p>
+                <div class="security-techniques">
+                    <div class="technique-item">
+                        <i class="fas fa-cogs"></i>
+                        <strong>Shellcode Generation</strong>
+                        <p>Metasploit and custom payload creation</p>
+                    </div>
+                    <div class="technique-item">
+                        <i class="fas fa-disguise"></i>
+                        <strong>Obfuscation Techniques</strong>
+                        <p>Encoding and polymorphic payloads</p>
+                    </div>
+                    <div class="technique-item">
+                        <i class="fas fa-gift"></i>
+                        <strong>Delivery Methods</strong>
+                        <p>Email, web, USB, and social engineering vectors</p>
+                    </div>
+                    <div class="technique-item">
+                        <i class="fas fa-user-secret"></i>
+                        <strong>Payload Staging</strong>
+                        <p>Multi-stage payload execution chains</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Virus & Malware Logic -->
+            <div class="security-category">
+                <h3><i class="fas fa-bug" style="color: #28a745;"></i>Virus & Malware Concepts</h3>
+                <p>Educational understanding of virus mechanisms, propagation methods, and defensive countermeasures.</p>
+                <div class="security-techniques">
+                    <div class="technique-item">
+                        <i class="fas fa-copy"></i>
+                        <strong>Self-Replication</strong>
+                        <p>Code infection and propagation logic</p>
+                    </div>
+                    <div class="technique-item">
+                        <i class="fas fa-virus"></i>
+                        <strong>Polymorphism</strong>
+                        <p>Shape-shifting and mutation techniques</p>
+                    </div>
+                    <div class="technique-item">
+                        <i class="fas fa-file"></i>
+                        <strong>File System Infection</strong>
+                        <p>Boot sector and file-based attacks</p>
+                    </div>
+                    <div class="technique-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <strong>Anti-Analysis Techniques</strong>
+                        <p>Evasion and anti-debugging methods</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trojan & RAT -->
+            <div class="security-category">
+                <h3><i class="fas fa-horse" style="color: #6f42c1;"></i>Trojan & Remote Access Trojans</h3>
+                <p>Knowledge of trojan functionality, C2 communication, and RAT capabilities for security research and defensive strategies.</p>
+                <div class="security-techniques">
+                    <div class="technique-item">
+                        <i class="fas fa-connection"></i>
+                        <strong>C2 Communication</strong>
+                        <p>Command & control server interaction patterns</p>
+                    </div>
+                    <div class="technique-item">
+                        <i class="fas fa-eye"></i>
+                        <strong>Remote Access</strong>
+                        <p>Backdoor persistence and access maintenance</p>
+                    </div>
+                    <div class="technique-item">
+                        <i class="fas fa-camera"></i>
+                        <strong>Data Exfiltration</strong>
+                        <p>Keylogging and data theft mechanisms</p>
+                    </div>
+                    <div class="technique-item">
+                        <i class="fas fa-crown"></i>
+                        <strong>Privilege Escalation</strong>
+                        <p>Elevation and system takeover techniques</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tools & Technologies -->
+            <div class="tools-section">
+                <h3>Security Tools & Technologies</h3>
+                <div class="tools-grid">
+                    <div class="tool-card" onclick="loadToolPreview('networkAnalysis')">
+                        <strong style="color: var(--secondary-color);">Network Analysis</strong>
+                        <h4>Wireshark | tcpdump | Nmap | Metasploit</h4>
+                        <p>Professional-grade network monitoring and vulnerability scanning tools</p>
+                    </div>
+                    <div class="tool-card" onclick="loadToolPreview('systemSecurity')">
+                        <strong style="color: var(--secondary-color);">System Security</strong>
+                        <h4>SELinux | AppArmor | Lynis | Tiger</h4>
+                        <p>Linux hardening and security auditing utilities</p>
+                    </div>
+                    <div class="tool-card" onclick="loadToolPreview('passwordTesting')">
+                        <strong style="color: var(--secondary-color);">Password Testing</strong>
+                        <h4>Hashcat | John the Ripper | Hydra</h4>
+                        <p>Password strength analysis and secure testing tools</p>
+                    </div>
+                    <div class="tool-card" onclick="loadToolPreview('webSecurity')">
+                        <strong style="color: var(--secondary-color);">Web Security</strong>
+                        <h4>Burp Suite | OWASP ZAP | SQLmap</h4>
+                        <p>Web application security testing platforms</p>
+                    </div>
+                    <div class="tool-card" onclick="loadToolPreview('forensics')">
+                        <strong style="color: var(--secondary-color);">Forensics</strong>
+                        <h4>Volatility | Autopsy | Sleuth Kit</h4>
+                        <p>Digital forensics and incident investigation tools</p>
+                    </div>
+                    <div class="tool-card" onclick="loadToolPreview('monitoring')">
+                        <strong style="color: var(--secondary-color);">Monitoring</strong>
+                        <h4>Snort | Suricata | ELK Stack | Splunk</h4>
+                        <p>Intrusion detection and security information management</p>
+                    </div>
+                    <div class="tool-card" onclick="loadToolPreview('nexoTech')">
+                        <strong style="color: var(--secondary-color);">NEXO-TECH Suite</strong>
+                        <h4><a href="https://github.com/demonalexander526-alt/DEMONIC_TOOLS" target="_blank" style="color: var(--secondary-color);">DEMONIC_TOOLS</a></h4>
+                        <p>Comprehensive Linux tool suite for system diagnostics and security testing</p>
+                    </div>
+                    <div class="tool-card" onclick="loadToolPreview('whatsappBot')">
+                        <strong style="color: var(--secondary-color);">WhatsApp Bot</strong>
+                        <h4><a href="https://github.com/demonalexander526-alt/DEMONIC-BOT" target="_blank" style="color: var(--secondary-color);">DEMONIC-BOT</a></h4>
+                        <p>Advanced WhatsApp multi-purpose bot for automated messaging and social engineering testing</p>
+                    </div>
+                    <div class="tool-card" onclick="loadToolPreview('ddos')" style="background: #ff6b9d; color: white;">
+                        <strong style="color: white;">DDoS Tool</strong>
+                        <h4><a href="https://github.com/demonalexander526-alt/NEXO-TECH_IP-FLOODER" target="_blank" style="color: white;">NEXO-TECH IP Flooder</a></h4>
+                        <img src="ip-flooder.jpeg" alt="DDoS tool screenshot" style="width: 100%; max-width: 300px; margin-bottom: 1rem; border-radius: 8px;" />
+                        <p style="color: white;">This is a low level ddos attack to only take down weak website; the traffic limit for this tool is low.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="install-box">
+                <img id="preview-image" src="" alt="" class="tool-image" style="display: none;" />
+                <h4 id="preview-title">Select a tool card to load tool details</h4>
+                <p id="preview-description">Click any tool card above to display its screenshot, description, and install commands on the main board.</p>
+                <div id="preview-command-list"></div>
+                <p id="preview-warning" style="margin-top: 1rem; color: #ffccd5; font-weight: 600; display: none;"></p>
+            </div>
+
+            <!-- Methodology -->
+            <div class="methodology-box">
+                <h3>DEMONIC_TOOLS Suite Overview</h3>
+                <p>
+                    The DEMONIC_TOOLS suite represents a comprehensive collection of Linux system utilities and security testing frameworks. 
+                    Built with Python, Shell scripting, and compiled languages, this toolkit demonstrates advanced proficiency in system 
+                    automation, network diagnostics, and security analysis on Linux platforms. The suite includes system administration tools, 
+                    diagnostic utilities, and educational security frameworks designed for authorized testing environments.
+                </p>
+            </div>
+
+            <!-- Relevant Certifications & Learning -->
+            <h3 style="text-align: center; color: var(--primary-color); margin: 3rem 0 2rem 0;">
+                Security Certifications & Areas of Expertise
+            </h3>
+            <div class="certifications">
+                <div class="certification-item">
+                    <i class="fas fa-certificate"></i>
+                    <h4>CEH (Certified Ethical Hacker)</h4>
+                    <p>Comprehensive hacking and penetration testing fundamentals</p>
+                </div>
+                <div class="certification-item">
+                    <i class="fas fa-certificate"></i>
+                    <h4>OSCP (Offensive Security)</h4>
+                    <p>Advanced penetration testing practical skills</p>
+                </div>
+                <div class="certification-item">
+                    <i class="fas fa-certificate"></i>
+                    <h4>CompTIA Security+</h4>
+                    <p>Foundational cybersecurity and compliance knowledge</p>
+                </div>
+                <div class="certification-item">
+                    <i class="fas fa-certificate"></i>
+                    <h4>Linux Security Specialist</h4>
+                    <p>Linux hardening and system administration</p>
+                </div>
+            </div>
+
+            <!-- Best Practices -->
+            <div style="background: linear-gradient(135deg, var(--bg-light) 0%, #f0f0f0 100%); padding: 3rem; border-radius: var(--border-radius); margin-top: 3rem; opacity: 0.95;">
+                <h3 style="color: var(--primary-color); margin-bottom: 1.5rem;">Security Best Practices & Principles</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                    <div>
+                        <h4 style="color: var(--secondary-color); margin-bottom: 0.7rem;">
+                            <i class="fas fa-check-circle"></i> Principle of Least Privilege
+                        </h4>
+                        <p style="color: #666;">Users and systems should have minimum necessary permissions to perform their functions.</p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--secondary-color); margin-bottom: 0.7rem;">
+                            <i class="fas fa-check-circle"></i> Defense in Depth
+                        </h4>
+                        <p style="color: #666;">Multiple layers of security controls to protect against various attack vectors.</p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--secondary-color); margin-bottom: 0.7rem;">
+                            <i class="fas fa-check-circle"></i> Security Automation
+                        </h4>
+                        <p style="color: #666;">Continuous monitoring and automated response to security threats.</p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--secondary-color); margin-bottom: 0.7rem;">
+                            <i class="fas fa-check-circle"></i> Secure Development
+                        </h4>
+                        <p style="color: #666;">Implementing security from the design phase through deployment and maintenance.</p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--secondary-color); margin-bottom: 0.7rem;">
+                            <i class="fas fa-check-circle"></i> Incident Response
+                        </h4>
+                        <p style="color: #666;">Rapid detection, analysis, and recovery from security incidents.</p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--secondary-color); margin-bottom: 0.7rem;">
+                            <i class="fas fa-check-circle"></i> Continuous Learning
+                        </h4>
+                        <p style="color: #666;">Staying updated with latest threats, vulnerabilities, and security trends.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 ALEXANDER. All rights reserved. | Grey Hat Cybersecurity Expert</p>
+            <div class="social-links">
+                <a href="https://github.com/demonalexander526-alt" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Tool Modal -->
+    <div id="tool-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modal-image" src="" alt="" style="display: none;">
+            <h2 id="modal-title"></h2>
+            <p id="modal-description"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
