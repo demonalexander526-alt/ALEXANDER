@@ -187,6 +187,65 @@
             overflow-x: auto;
         }
 
+        .command-line-section {
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            color: #f5f5ff;
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            margin: 3rem 0;
+        }
+
+        .command-line-section h3 {
+            color: var(--neon-cyan);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .command-line-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .cmd-card {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .cmd-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--neon-cyan);
+        }
+
+        .cmd-card h4 {
+            color: var(--text-light);
+            margin-bottom: 0.8rem;
+        }
+
+        .cmd-card p {
+            color: #d1d5db;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .cmd-card code {
+            display: block;
+            background: rgba(255, 255, 255, 0.08);
+            color: #e3f2fd;
+            padding: 0.9rem 1rem;
+            border-radius: 10px;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: auto;
+            margin-bottom: 0.8rem;
+        }
+
+        .cmd-card code:last-child {
+            margin-bottom: 0;
+        }
+
         .methodology-box {
             background: linear-gradient(135deg, var(--secondary-color) 0%, #ff6b9d 100%);
             color: var(--text-light);
@@ -382,8 +441,12 @@
                 <li><a href="index.html#skills">Skills</a></li>
                 <li><a href="programming.html">Programming</a></li>
                 <li><a href="hacking.html">Hacking</a></li>
+                <li><a href="learn-hacking.html">Learn Hacking</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
             </ul>
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
             <button class="theme-toggle" title="Toggle Dark Mode">
                 <i class="fas fa-moon"></i>
             </button>
@@ -758,6 +821,44 @@
                 <div id="preview-command-list"></div>
                 <p id="preview-warning" style="margin-top: 1rem; color: #ffccd5; font-weight: 600; display: none;"></p>
             </div>
+
+            <section class="command-line-section">
+                <h3>Command Line Examples</h3>
+                <div class="command-line-grid">
+                    <div class="cmd-card">
+                        <h4>Reconnaissance Commands</h4>
+                        <p>Collect information safely before testing and authorized analysis.</p>
+                        <code>whois example.com</code>
+                        <code>dig @8.8.8.8 example.com ANY</code>
+                        <code>traceroute -T example.com</code>
+                        <code>nmap -sC -sV -oN scan.txt 10.10.10.10</code>
+                    </div>
+                    <div class="cmd-card">
+                        <h4>Network Scanning & Monitoring</h4>
+                        <p>Inspect open services, active connections, and live traffic flows.</p>
+                        <code>ss -tulpen</code>
+                        <code>tcpdump -i eth0 -nn -s 0 port 80</code>
+                        <code>ncat -lvp 4444</code>
+                        <code>nmcli device show</code>
+                    </div>
+                    <div class="cmd-card">
+                        <h4>System Enumeration</h4>
+                        <p>Inspect system state, privilege settings, and potential escalation vectors.</p>
+                        <code>sudo -l</code>
+                        <code>find / -perm -4000 -type f 2>/dev/null</code>
+                        <code>ps aux | grep -E 'apache|nginx|sql|ssh'</code>
+                        <code>grep -R "password" /etc -n 2>/dev/null</code>
+                    </div>
+                    <div class="cmd-card">
+                        <h4>SSH & Hardening</h4>
+                        <p>Secure remote access checks and system hardening commands.</p>
+                        <code>ssh -i ~/.ssh/id_rsa user@10.10.10.10</code>
+                        <code>chmod 600 ~/.ssh/id_rsa</code>
+                        <code>ufw status verbose</code>
+                        <code>systemctl status sshd</code>
+                    </div>
+                </div>
+            </section>
 
             <!-- Methodology -->
             <div class="methodology-box">

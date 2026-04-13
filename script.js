@@ -29,7 +29,29 @@ if (themeToggle) {
     });
 }
 
-// ==================== SMOOTH SCROLLING ==================== //
+const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+const navMenu = document.querySelector('.nav-menu');
+
+if (mobileMenuToggle && navMenu) {
+    mobileMenuToggle.addEventListener('click', function() {
+        const isOpen = navMenu.classList.toggle('open');
+        mobileMenuToggle.setAttribute('aria-expanded', isOpen);
+        mobileMenuToggle.innerHTML = isOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    });
+
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', function() {
+            if (navMenu.classList.contains('open')) {
+                navMenu.classList.remove('open');
+                mobileMenuToggle.setAttribute('aria-expanded', false);
+                mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+    });
+}
+
+// ==================== SMOOTH SCROLLING ====================
+ //
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -242,7 +264,7 @@ const toolPreviewData = {
     },
     ddos: {
         title: 'DDoS Tool',
-        description: 'This DDoS Tool NEXO-TECH IP Flooder is a low level ddos attack designed to only take down weak websites; the traffic limit for this tool is low.',
+        description: 'This DDoS Tool NEXO-TECH IP Flooder is a low level ddos attack designed to only take down weak websites... the traffic limit for this tool is low.',
         image: 'ip-flooder.jpeg',
         commands: [
             'pkg update && pkg upgrade',
