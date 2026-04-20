@@ -164,14 +164,7 @@ To customize the portfolio:
 - Edge (latest)
 - Mobile browsers (iOS Safari, Chrome Mobile)
 
-## 🌐 Deployment
 
-To deploy this portfolio:
-
-1. **GitHub Pages**: Upload files to GitHub and enable Pages
-2. **Netlify**: Drag and drop files or connect GitHub repo
-3. **Vercel**: Upload for fast deployment
-4. **Traditional Hosting**: Upload files via FTP/SFTP
 
 ## 📞 Contact
 

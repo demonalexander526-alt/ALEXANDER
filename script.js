@@ -326,3 +326,193 @@ function loadToolPreview(toolKey) {
     }
 }
 
+// ==================== INTENSE HACKING EFFECTS ==================== //
+
+// Matrix Rain Effect for Dark Web Section
+function createMatrixRain() {
+    const darkWebSection = document.querySelector('.dark-web-section');
+    if (!darkWebSection) return;
+
+    const canvas = document.createElement('canvas');
+    canvas.style.position = 'absolute';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
+    canvas.style.width = '100%';
+    canvas.style.height = '100%';
+    canvas.style.pointerEvents = 'none';
+    canvas.style.opacity = '0.1';
+    canvas.style.zIndex = '0';
+
+    darkWebSection.style.position = 'relative';
+    darkWebSection.appendChild(canvas);
+
+    const ctx = canvas.getContext('2d');
+    canvas.width = darkWebSection.offsetWidth;
+    canvas.height = darkWebSection.offsetHeight;
+
+    const matrix = "01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン";
+    const matrixArray = matrix.split("");
+
+    const fontSize = 14;
+    const columns = canvas.width / fontSize;
+    const drops = [];
+
+    for (let x = 0; x < columns; x++) {
+        drops[x] = 1;
+    }
+
+    function draw() {
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = '#FF4500';
+        ctx.font = fontSize + 'px monospace';
+
+        for (let i = 0; i < drops.length; i++) {
+            const text = matrixArray[Math.floor(Math.random() * matrixArray.length)];
+            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                drops[i] = 0;
+            }
+            drops[i]++;
+        }
+    }
+
+    setInterval(draw, 35);
+}
+
+// Glitch Effect for Dark Web Cards
+function addGlitchEffect() {
+    const darkWebCards = document.querySelectorAll('.dark-web-card');
+
+    darkWebCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.animation = 'glitch 0.3s infinite';
+        });
+
+        card.addEventListener('mouseleave', function() {
+            this.style.animation = '';
+        });
+    });
+}
+
+// Add CSS for glitch effect
+const glitchStyle = document.createElement('style');
+glitchStyle.textContent = `
+    @keyframes glitch {
+        0% { transform: translate(0); }
+        20% { transform: translate(-2px, 2px); }
+        40% { transform: translate(-2px, -2px); }
+        60% { transform: translate(2px, 2px); }
+        80% { transform: translate(2px, -2px); }
+        100% { transform: translate(0); }
+    }
+
+    .pulse-glow {
+        animation: pulseGlow 2s infinite;
+    }
+
+    @keyframes pulseGlow {
+        0%, 100% { box-shadow: 0 0 20px rgba(139, 0, 0, 0.3); }
+        50% { box-shadow: 0 0 40px rgba(255, 69, 0, 0.6); }
+    }
+`;
+document.head.appendChild(glitchStyle);
+
+// Typing Effect for Dark Web Warning
+function typeDarkWebWarning() {
+    const warningElement = document.querySelector('.dark-web-warning p');
+    if (!warningElement) return;
+
+    const originalText = warningElement.textContent;
+    warningElement.textContent = '';
+    warningElement.style.borderRight = '2px solid #FF0000';
+
+    let i = 0;
+    const typeInterval = setInterval(() => {
+        if (i < originalText.length) {
+            warningElement.textContent += originalText.charAt(i);
+            i++;
+        } else {
+            clearInterval(typeInterval);
+            warningElement.style.borderRight = 'none';
+        }
+    }, 50);
+}
+
+// Particle Effect for Dark Web Section
+function createParticles() {
+    const darkWebSection = document.querySelector('.dark-web-section');
+    if (!darkWebSection) return;
+
+    for (let i = 0; i < 20; i++) {
+        const particle = document.createElement('div');
+        particle.style.position = 'absolute';
+        particle.style.width = '2px';
+        particle.style.height = '2px';
+        particle.style.background = '#FF4500';
+        particle.style.borderRadius = '50%';
+        particle.style.pointerEvents = 'none';
+        particle.style.opacity = Math.random();
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 100 + '%';
+        particle.style.animation = `float${i % 3} ${3 + Math.random() * 4}s infinite linear`;
+
+        darkWebSection.appendChild(particle);
+    }
+
+    // Add floating animations
+    const floatStyles = document.createElement('style');
+    floatStyles.textContent = `
+        @keyframes float0 {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        @keyframes float1 {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(120deg); }
+        }
+        @keyframes float2 {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-25px) rotate(240deg); }
+        }
+    `;
+    document.head.appendChild(floatStyles);
+}
+
+// Initialize intense effects when DOM loads
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize existing functionality
+    const navbar = document.querySelector('.navbar');
+
+    // Add scroll effect to navbar
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            navbar.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.2)';
+        } else {
+            navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+        }
+    });
+
+    // Add intense hacking effects
+    setTimeout(() => {
+        createMatrixRain();
+        addGlitchEffect();
+        createParticles();
+        typeDarkWebWarning();
+    }, 1000);
+
+    // Add pulse glow to security categories on scroll
+    const securityCategories = document.querySelectorAll('.security-category');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('pulse-glow');
+            }
+        });
+    });
+
+    securityCategories.forEach(category => observer.observe(category));
+});
+
