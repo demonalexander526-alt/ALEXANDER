@@ -258,8 +258,17 @@ const toolPreviewData = {
     whatsappBot: {
         title: 'WhatsApp Bot',
         description: 'Advanced WhatsApp multi-purpose bot for automated messaging and social engineering testing.',
-        image: '',
-        commands: [],
+        image: 'bot.jpeg',
+        commands: [
+            'pkg updatee && pkg upgrade',
+            'pkg install git -y',
+            'pkg install nodejs',
+            'git clone https://github.com/demonalexander526-alt/DEMONIC-BOT.git',
+            'cd DEMONIC-BOT',
+            'ls',
+            'clear',
+            'npm install'
+        ],
         warning: ''
     },
     ddos: {
@@ -306,7 +315,7 @@ function loadToolPreview(toolKey) {
             const codeBlock = document.createElement('code');
             codeBlock.textContent = command;
             previewCommandList.appendChild(codeBlock);
-        });
+        }); n
     }
 
     if (tool.warning) {
