@@ -729,6 +729,350 @@
             0% { transform: translateX(-100px); }
             100% { transform: translateX(100vw); }
         }
+
+        /* ==================== LINUX DISTRIBUTIONS SECTION ==================== */
+        .linux-distro-section {
+            padding: 3rem 0;
+            margin: 3rem 0;
+        }
+
+        .linux-distro-section h3 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        .linux-distro-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #666;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        .distro-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 2.5rem;
+            margin: 2rem 0;
+        }
+
+        .distro-card {
+            background: var(--text-light);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .distro-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+            z-index: 10;
+        }
+
+        .distro-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+            border-color: var(--secondary-color);
+        }
+
+        .distro-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            color: var(--text-light);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .distro-header i {
+            font-size: 3.5rem;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+        }
+
+        .distro-header h4 {
+            font-size: 1.8rem;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .distro-header p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .distro-content {
+            padding: 2rem 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .distro-features {
+            margin: 1.5rem 0;
+        }
+
+        .distro-features h5 {
+            color: var(--secondary-color);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .feature-list li {
+            padding: 0.6rem 0;
+            color: #555;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            color: var(--success-color);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .distro-description {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .distro-comparison {
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .distro-comparison h6 {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .comparison-item {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+
+        .comparison-item strong {
+            color: var(--primary-color);
+        }
+
+        .distro-footer {
+            margin-top: auto;
+            padding-top: 1.5rem;
+            border-top: 1px solid #f0f0f0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .distro-btn {
+            padding: 0.9rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            font-size: 0.9rem;
+        }
+
+        .distro-btn-primary {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-color) 100%);
+            color: var(--text-light);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .distro-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .distro-btn-secondary {
+            background: var(--bg-secondary);
+            color: var(--primary-color);
+            border: 2px solid var(--border-color);
+        }
+
+        .distro-btn-secondary:hover {
+            border-color: var(--secondary-color);
+            background: rgba(59, 130, 246, 0.05);
+        }
+
+        /* Dark Mode Overrides for Linux Distro Cards */
+        :root[data-theme="dark"] .distro-card {
+            background: var(--primary-color);
+            border-color: rgba(139, 0, 255, 0.2);
+        }
+
+        :root[data-theme="dark"] .distro-card:hover {
+            border-color: var(--neon-purple);
+            box-shadow: 0 20px 50px rgba(139, 0, 255, 0.3);
+        }
+
+        :root[data-theme="dark"] .distro-comparison {
+            background: linear-gradient(135deg, rgba(139, 0, 255, 0.1) 0%, rgba(139, 0, 255, 0.05) 100%);
+            border-left-color: var(--neon-purple);
+        }
+
+        :root[data-theme="dark"] .distro-comparison h6 {
+            color: var(--text-light);
+        }
+
+        :root[data-theme="dark"] .comparison-item {
+            color: var(--text-dark);
+        }
+
+        :root[data-theme="dark"] .comparison-item strong {
+            color: var(--text-light);
+        }
+
+        :root[data-theme="dark"] .feature-list li {
+            color: var(--text-dark);
+            border-bottom-color: rgba(255, 255, 255, 0.1);
+        }
+
+        :root[data-theme="dark"] .distro-description {
+            color: var(--text-dark);
+        }
+
+        :root[data-theme="dark"] .distro-footer {
+            border-top-color: rgba(255, 255, 255, 0.1);
+        }
+
+        :root[data-theme="dark"] .distro-btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-light);
+            border-color: var(--neon-purple);
+        }
+
+        :root[data-theme="dark"] .distro-btn-secondary:hover {
+            background: rgba(139, 0, 255, 0.2);
+            border-color: var(--neon-cyan);
+        }
+
+        /* Dark Mode Overrides for Comparison Table */
+        :root[data-theme="dark"] table {
+            background: var(--primary-color);
+        }
+
+        :root[data-theme="dark"] thead tr {
+            background: #0a0e27 !important;
+        }
+
+        :root[data-theme="dark"] tbody tr {
+            background: var(--bg-card) !important;
+            color: var(--text-light);
+        }
+
+        :root[data-theme="dark"] tbody tr:nth-child(odd) {
+            background: rgba(139, 0, 255, 0.08) !important;
+        }
+
+        :root[data-theme="dark"] td {
+            color: var(--text-dark);
+            border-color: var(--border-color) !important;
+        }
+
+        :root[data-theme="dark"] th {
+            color: var(--text-light) !important;
+            border-color: var(--border-color) !important;
+        }
+
+        /* Dark Mode for Recommendation Sections */
+        :root[data-theme="dark"] [style*="rgba(255, 0, 0, 0.1)"] {
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.2) 0%, rgba(255, 0, 0, 0.1) 100%) !important;
+        }
+
+        :root[data-theme="dark"] [style*="rgba(0, 0, 0, 0.08)"] {
+            background: linear-gradient(135deg, rgba(139, 0, 255, 0.15) 0%, rgba(139, 0, 255, 0.08) 100%) !important;
+        }
+
+        :root[data-theme="dark"] .linux-distro-intro {
+            color: var(--text-dark);
+        }
+
+        :root[data-theme="dark"] .distro-section-title h3 {
+            color: var(--text-light);
+        }
+        
+
+        /* Animation for distro cards */
+        .distro-card {
+            animation: slideInFromBottom 0.8s ease-out;
+        }
+
+        .distro-card:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .distro-card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        /* Linux distro section title underline */
+        .distro-section-title {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .distro-section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+            border-radius: 2px;
+        }
     </style>
 </head>
 <body>
@@ -1346,6 +1690,226 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Linux Distributions Section -->
+            <section class="linux-distro-section">
+                <div class="distro-section-title">
+                    <h3><i class="fas fa-linux" style="margin-right: 1rem; color: var(--secondary-color);"></i>Penetration Testing Linux Distributions</h3>
+                </div>
+                <p class="linux-distro-intro">
+                    Professional-grade Linux distributions purpose-built for cybersecurity, penetration testing, and ethical hacking. 
+                    Both Kali Linux and Black Arch Linux provide comprehensive security tools, but with different philosophies and features. 
+                    Choose the distribution that best fits your workflow and methodology.
+                </p>
+
+                <div class="distro-grid">
+                    <!-- Kali Linux Card -->
+                    <div class="distro-card">
+                        <div class="distro-header">
+                            <i class="fas fa-dragon" style="color: #FF0000;"></i>
+                            <h4>Kali Linux</h4>
+                            <p>The Industry Standard</p>
+                        </div>
+                        <div class="distro-content">
+                            <p class="distro-description">
+                                Kali Linux is the world's most widely used penetration testing platform, developed and maintained by Offensive Security. 
+                                It comes with 600+ pre-installed security tools and is the official platform for CEH and OSCP certifications.
+                            </p>
+
+                            <div class="distro-features">
+                                <h5><i class="fas fa-star" style="color: #FFD700; margin-right: 0.5rem;"></i>Core Strengths</h5>
+                                <ul class="feature-list">
+                                    <li>600+ Pre-installed Security Tools</li>
+                                    <li>Industry Standard & Widely Recognized</li>
+                                    <li>Extensive Community & Documentation</li>
+                                    <li>Official CEH & OSCP Platform</li>
+                                    <li>Regular Security Updates</li>
+                                    <li>Live Boot & USB Installation Support</li>
+                                </ul>
+                            </div>
+
+                            <div class="distro-comparison">
+                                <h6>Key Characteristics</h6>
+                                <div class="comparison-item"><strong>Based on:</strong> Debian Linux</div>
+                                <div class="comparison-item"><strong>Package Manager:</strong> APT (Advanced Package Tool)</div>
+                                <div class="comparison-item"><strong>Default DE:</strong> Xfce, GNOME, KDE, i3</div>
+                                <div class="comparison-item"><strong>Kernel:</strong> Rolling Release</div>
+                                <div class="comparison-item"><strong>Tool Count:</strong> 600+</div>
+                                <div class="comparison-item"><strong>Learning Curve:</strong> Moderate</div>
+                            </div>
+
+                            <div class="distro-footer">
+                                <a href="https://www.kali.org/" target="_blank" class="distro-btn distro-btn-primary">
+                                    <i class="fas fa-globe"></i> Official Website
+                                </a>
+                                <a href="https://www.kali.org/docs/" target="_blank" class="distro-btn distro-btn-secondary">
+                                    <i class="fas fa-book"></i> Documentation
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Black Arch Linux Card -->
+                    <div class="distro-card">
+                        <div class="distro-header">
+                            <i class="fas fa-skull" style="color: #000000;"></i>
+                            <h4>Black Arch Linux</h4>
+                            <p>The Lightweight Power Tool</p>
+                        </div>
+                        <div class="distro-content">
+                            <p class="distro-description">
+                                Black Arch is a lightweight, modular Arch Linux-based penetration testing distribution. It focuses on minimalism, 
+                                speed, and advanced users who prefer customization. It offers 2000+ tools that can be installed selectively.
+                            </p>
+
+                            <div class="distro-features">
+                                <h5><i class="fas fa-bolt" style="color: #FFD700; margin-right: 0.5rem;"></i>Core Strengths</h5>
+                                <ul class="feature-list">
+                                    <li>2000+ Available Security Tools</li>
+                                    <li>Lightweight & Fast Performance</li>
+                                    <li>Highly Customizable Architecture</li>
+                                    <li>Modular Installation Options</li>
+                                    <li>Advanced User Friendly</li>
+                                    <li>Rolling Release Bleeding Edge</li>
+                                </ul>
+                            </div>
+
+                            <div class="distro-comparison">
+                                <h6>Key Characteristics</h6>
+                                <div class="comparison-item"><strong>Based on:</strong> Arch Linux</div>
+                                <div class="comparison-item"><strong>Package Manager:</strong> Pacman</div>
+                                <div class="comparison-item"><strong>Default DE:</strong> Minimal (DIY Approach)</div>
+                                <div class="comparison-item"><strong>Kernel:</strong> Rolling Release</div>
+                                <div class="comparison-item"><strong>Tool Count:</strong> 2000+</div>
+                                <div class="comparison-item"><strong>Learning Curve:</strong> Steep (Expert Level)</div>
+                            </div>
+
+                            <div class="distro-footer">
+                                <a href="https://blackarch.org/" target="_blank" class="distro-btn distro-btn-primary">
+                                    <i class="fas fa-globe"></i> Official Website
+                                </a>
+                                <a href="https://blackarch.org/guide.html" target="_blank" class="distro-btn distro-btn-secondary">
+                                    <i class="fas fa-book"></i> Installation Guide
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comparison Table Section -->
+                <div style="margin-top: 3rem; background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%); padding: 2.5rem; border-radius: 16px; border: 2px solid var(--secondary-color);">
+                    <h4 style="color: var(--primary-color); margin-bottom: 2rem; text-align: center; font-size: 1.4rem;">
+                        <i class="fas fa-exchange-alt" style="margin-right: 0.8rem;"></i>Detailed Comparison
+                    </h4>
+                    <div style="overflow-x: auto;">
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <thead>
+                                <tr style="background: var(--primary-color); color: white;">
+                                    <th style="padding: 1rem; text-align: left; border: 1px solid #ddd;">Feature</th>
+                                    <th style="padding: 1rem; text-align: center; border: 1px solid #ddd; background: linear-gradient(135deg, #FF0000 0%, #cc0000 100%); color: white;">Kali Linux</th>
+                                    <th style="padding: 1rem; text-align: center; border: 1px solid #ddd; background: #000000; color: white;">Black Arch</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="background: white;">
+                                    <td style="padding: 1rem; border: 1px solid #ddd; font-weight: 600;">Base Distribution</td>
+                                    <td style="padding: 1rem; border: 1px solid #ddd; text-align: center;">Debian</td>
+                                    <td style="padding: 1rem; border: 1px solid #ddd; text-align: center;">Arch Linux</td>
+                                </tr>
+                                <tr style="background: #f9f9f9;">
+                                    <td style="padding: 1rem; border: 1px solid #ddd; font-weight: 600;">Pre-installed Tools</td>
+                                    <td style="padding: 1rem; border: 1px solid #ddd; text-align: center;">600+</td>
+                                    <td style="padding: 1rem; border: 1px solid #ddd; text-align: center;">2000+ (Optional)</td>
+                                </tr>
+                                <tr style="background: white;">
+                                    <td style="padding: 1rem; border: 1px solid #ddd; font-weight: 600;">Installation Size</td>
+                                    <td style="padding: 1rem; border: 1px solid #ddd; text-align: center;">Large (~3-5 GB)</td>
+                                    <td style="padding: 1rem; border: 1px solid #ddd; text-align: center;">Minimal (~800 MB)</td>
+                                </tr>
+                                <tr style="background: #f9f9f9;">
+                                    <td style="padding: 1rem; border: 1px solid #ddd; font-weight: 600;">Learning Curve</td>
+                                    <td style="padding: 1rem; border: 1px solid #ddd; text-align: center;">Beginner to Advanced</td>
+                                    <td style="padding: 1rem; border: 1px solid #ddd; text-align: center;">Advanced to Expert</td>
+                                </tr>
+                                <tr style="background: white;">
+                                    <td style="padding: 1rem; border: 1px solid #ddd; font-weight: 600;">Performance</td>
+                                    <td style="padding: 1rem; border: 1px solid #ddd; text-align: center;">Very Good</td>
+                                    <td style="padding: 1rem; border: 1px solid #ddd; text-align: center;">Excellent</td>
+                                </tr>
+                                <tr style="background: #f9f9f9;">
+                                    <td style="padding: 1rem; border: 1px solid #ddd; font-weight: 600;">Customization</td>
+                                    <td style="padding: 1rem; border: 1px solid #ddd; text-align: center;">Moderate</td>
+                                    <td style="padding: 1rem; border: 1px solid #ddd; text-align: center;">Extensive</td>
+                                </tr>
+                                <tr style="background: white;">
+                                    <td style="padding: 1rem; border: 1px solid #ddd; font-weight: 600;">Community</td>
+                                    <td style="padding: 1rem; border: 1px solid #ddd; text-align: center;">Massive & Established</td>
+                                    <td style="padding: 1rem; border: 1px solid #ddd; text-align: center;">Growing & Active</td>
+                                </tr>
+                                <tr style="background: #f9f9f9;">
+                                    <td style="padding: 1rem; border: 1px solid #ddd; font-weight: 600;">Certifications</td>
+                                    <td style="padding: 1rem; border: 1px solid #ddd; text-align: center;">CEH, OSCP Official</td>
+                                    <td style="padding: 1rem; border: 1px solid #ddd; text-align: center;">Not Official</td>
+                                </tr>
+                                <tr style="background: white;">
+                                    <td style="padding: 1rem; border: 1px solid #ddd; font-weight: 600;">Best For</td>
+                                    <td style="padding: 1rem; border: 1px solid #ddd; text-align: center;">Beginners & Professionals</td>
+                                    <td style="padding: 1rem; border: 1px solid #ddd; text-align: center;">Advanced & Expert Users</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Recommendations -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                    <div style="background: linear-gradient(135deg, rgba(255, 0, 0, 0.1) 0%, rgba(255, 0, 0, 0.05) 100%); padding: 2rem; border-radius: 12px; border-left: 4px solid #FF0000;">
+                        <h5 style="color: #CC0000; margin-bottom: 1rem; font-size: 1.1rem;">
+                            <i class="fas fa-check-circle"></i> Choose Kali Linux If:
+                        </h5>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="color: #666; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="color: #FF0000; font-weight: 700;">•</span> You're starting your hacking journey
+                            </li>
+                            <li style="color: #666; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="color: #FF0000; font-weight: 700;">•</span> You want extensive documentation
+                            </li>
+                            <li style="color: #666; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="color: #FF0000; font-weight: 700;">•</span> You need CEH/OSCP certification prep
+                            </li>
+                            <li style="color: #666; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="color: #FF0000; font-weight: 700;">•</span> You prefer a stable, tried-and-tested platform
+                            </li>
+                            <li style="color: #666; display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="color: #FF0000; font-weight: 700;">•</span> You work in professional penetration testing
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div style="background: linear-gradient(135deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.03) 100%); padding: 2rem; border-radius: 12px; border-left: 4px solid #000000;">
+                        <h5 style="color: #000000; margin-bottom: 1rem; font-size: 1.1rem;">
+                            <i class="fas fa-check-circle"></i> Choose Black Arch If:
+                        </h5>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="color: #666; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="color: #000000; font-weight: 700;">•</span> You're an experienced Linux user
+                            </li>
+                            <li style="color: #666; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="color: #000000; font-weight: 700;">•</span> You want maximum customization
+                            </li>
+                            <li style="color: #666; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="color: #000000; font-weight: 700;">•</span> You need lightweight, fast performance
+                            </li>
+                            <li style="color: #666; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="color: #000000; font-weight: 700;">•</span> You prefer a minimal, DIY approach
+                            </li>
+                            <li style="color: #666; display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="color: #000000; font-weight: 700;">•</span> You want access to 2000+ available tools
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
 
             <!-- Best Practices -->
             <div style="background: linear-gradient(135deg, var(--bg-light) 0%, #f0f0f0 100%); padding: 3rem; border-radius: var(--border-radius); margin-top: 3rem; opacity: 0.95;">
