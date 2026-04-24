@@ -457,6 +457,79 @@ function createParticles() {
         particle.style.opacity = Math.random();
         particle.style.left = Math.random() * 100 + '%';
         particle.style.top = Math.random() * 100 + '%';
+
+// ==================== VISITOR COUNTER (IP-BASED) ==================== //
+(function() {
+    const STORAGE_KEY = 'portfolio_unique_ips';
+    
+    // Initialize visitor counter based on IP detection
+    function initializeVisitorCounter() {
+        // Fetch visitor IP
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                const visitorIP = data.ip;
+                
+                // Get existing IPs from localStorage
+                let uniqueIPs = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+                
+                // Add IP if it's not already in the list
+                if (!uniqueIPs.includes(visitorIP)) {
+                    uniqueIPs.push(visitorIP);
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify(uniqueIPs));
+                }
+                
+                // Update display with total unique visitor count
+                const visitorCount = uniqueIPs.length;
+                const visitorCountElements = document.querySelectorAll('#visitor-count');
+                visitorCountElements.forEach(element => {
+                    element.textContent = visitorCount;
+                    // Add animation when page loads
+                    element.style.animation = 'none';
+                    setTimeout(() => {
+                        element.style.animation = 'pulse 0.6s ease-out';
+                    }, 100);
+                });
+            })
+            .catch(error => {
+                // Fallback if IP fetch fails - use stored count
+                console.log('IP detection unavailable, using stored count');
+                let uniqueIPs = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+                const visitorCount = uniqueIPs.length || 0;
+                const visitorCountElements = document.querySelectorAll('#visitor-count');
+                visitorCountElements.forEach(element => {
+                    element.textContent = visitorCount;
+                });
+            });
+    }
+    
+    // Run when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeVisitorCounter);
+    } else {
+        initializeVisitorCounter();
+    }
+})();
+
+/* Add pulse animation for visitor count */
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+            opacity: 1;
+        }
+        50% {
+            transform: scale(1.2);
+            opacity: 0.8;
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+`;
+document.head.appendChild(style);
         particle.style.animation = `float${i % 3} ${3 + Math.random() * 4}s infinite linear`;
 
         darkWebSection.appendChild(particle);
