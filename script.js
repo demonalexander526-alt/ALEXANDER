@@ -17,6 +17,21 @@ function updateThemeIcon() {
 // Set initial icon
 updateThemeIcon();
 
+// Fix mobile viewport units on mobile browsers (Android address-bar resize)
+(function setMobileVH(){
+    function updateVh(){
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+
+    updateVh();
+    window.addEventListener('resize', updateVh);
+    window.addEventListener('orientationchange', updateVh);
+    if (window.visualViewport) {
+        window.visualViewport.addEventListener('resize', updateVh);
+    }
+})();
+
 // Toggle theme on button click
 if (themeToggle) {
     themeToggle.addEventListener('click', function() {
@@ -457,79 +472,6 @@ function createParticles() {
         particle.style.opacity = Math.random();
         particle.style.left = Math.random() * 100 + '%';
         particle.style.top = Math.random() * 100 + '%';
-
-// ==================== VISITOR COUNTER (IP-BASED) ==================== //
-(function() {
-    const STORAGE_KEY = 'portfolio_unique_ips';
-    
-    // Initialize visitor counter based on IP detection
-    function initializeVisitorCounter() {
-        // Fetch visitor IP
-        fetch('https://api.ipify.org?format=json')
-            .then(response => response.json())
-            .then(data => {
-                const visitorIP = data.ip;
-                
-                // Get existing IPs from localStorage
-                let uniqueIPs = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-                
-                // Add IP if it's not already in the list
-                if (!uniqueIPs.includes(visitorIP)) {
-                    uniqueIPs.push(visitorIP);
-                    localStorage.setItem(STORAGE_KEY, JSON.stringify(uniqueIPs));
-                }
-                
-                // Update display with total unique visitor count
-                const visitorCount = uniqueIPs.length;
-                const visitorCountElements = document.querySelectorAll('#visitor-count');
-                visitorCountElements.forEach(element => {
-                    element.textContent = visitorCount;
-                    // Add animation when page loads
-                    element.style.animation = 'none';
-                    setTimeout(() => {
-                        element.style.animation = 'pulse 0.6s ease-out';
-                    }, 100);
-                });
-            })
-            .catch(error => {
-                // Fallback if IP fetch fails - use stored count
-                console.log('IP detection unavailable, using stored count');
-                let uniqueIPs = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-                const visitorCount = uniqueIPs.length || 0;
-                const visitorCountElements = document.querySelectorAll('#visitor-count');
-                visitorCountElements.forEach(element => {
-                    element.textContent = visitorCount;
-                });
-            });
-    }
-    
-    // Run when DOM is ready
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initializeVisitorCounter);
-    } else {
-        initializeVisitorCounter();
-    }
-})();
-
-/* Add pulse animation for visitor count */
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes pulse {
-        0% {
-            transform: scale(1);
-            opacity: 1;
-        }
-        50% {
-            transform: scale(1.2);
-            opacity: 0.8;
-        }
-        100% {
-            transform: scale(1);
-            opacity: 1;
-        }
-    }
-`;
-document.head.appendChild(style);
         particle.style.animation = `float${i % 3} ${3 + Math.random() * 4}s infinite linear`;
 
         darkWebSection.appendChild(particle);
@@ -555,6 +497,78 @@ document.head.appendChild(style);
 }
 
 // Initialize intense effects when DOM loads
+// Visitor counter: counts unique visitors globally using CountAPI, with local dedupe.
+(function() {
+    const LOCAL_KEY = 'alexander_counted_v1';
+    const NS = encodeURIComponent(location.hostname || 'local');
+    const KEY = 'visitors';
+
+    function updateElements(value) {
+        document.querySelectorAll('#visitor-count').forEach(el => {
+            el.textContent = value;
+            el.style.animation = 'none';
+            setTimeout(() => {
+                el.style.animation = 'pulse 0.6s ease-out';
+            }, 100);
+        });
+    }
+
+    function fetchCount() {
+        fetch(`https://api.countapi.xyz/get/${NS}/${KEY}`)
+            .then(res => res.json())
+            .then(data => {
+                if (data && typeof data.value !== 'undefined') {
+                    updateElements(data.value);
+                }
+            })
+            .catch(() => {
+                const fallback = localStorage.getItem('visitor_fallback') || '0';
+                updateElements(fallback);
+            });
+    }
+
+    function hitAndUpdate() {
+        fetch(`https://api.countapi.xyz/hit/${NS}/${KEY}`)
+            .then(res => res.json())
+            .then(data => {
+                const value = data.value || 0;
+                localStorage.setItem('visitor_fallback', String(value));
+                updateElements(value);
+                localStorage.setItem(LOCAL_KEY, '1');
+            })
+            .catch(() => {
+                fetchCount();
+            });
+    }
+
+    // Add pulse keyframes style once
+    const visitorStyle = document.createElement('style');
+    visitorStyle.textContent = `
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    `;
+    document.head.appendChild(visitorStyle);
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+            if (!localStorage.getItem(LOCAL_KEY)) {
+                hitAndUpdate();
+            } else {
+                fetchCount();
+            }
+        });
+    } else {
+        if (!localStorage.getItem(LOCAL_KEY)) {
+            hitAndUpdate();
+        } else {
+            fetchCount();
+        }
+    }
+})();
+
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize existing functionality
     const navbar = document.querySelector('.navbar');
